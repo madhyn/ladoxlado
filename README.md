@@ -18,3 +18,7 @@ sudo apt update --allow-releaseinfo-change
 
 sudo apt update
 sudo apt install bc nasm build-essential libelf-dev linux-headers-$(uname -r) dkms git -y
+
+
+echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
+sudo apt update
