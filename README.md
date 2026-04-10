@@ -1,24 +1,6 @@
-# Baixando as dependências direto do repositório
-wget http://ftp.us.debian.org/debian/pool/main/libe/libei/
-wget http://ftp.us.debian.org/debian/pool/main/libp/libportal
+# Clone o repositório do driver
+git clone https://github.com/clover88/rtl8192eu-linux.git
+cd rtl8192eu-linux
 
-# Instalando elas
-sudo dpkg -i libei1_1.2.1-1_amd64.deb
-sudo dpkg -i libportal1_0.7.1-4_amd64.deb
-
-# Agora instale o Deskflow
-sudo apt install ./deskflow-1.26.0-debian-trixie-x86_64.deb
-
-grep ^deb /etc/apt/sources.list
-
-
-sudo rm -rf /var/lib/apt/lists/*
-sudo apt update --allow-releaseinfo-change
-
-
-sudo apt update
-sudo apt install bc nasm build-essential libelf-dev linux-headers-$(uname -r) dkms git -y
-
-
-echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
-sudo apt update
+# Adicione o driver ao DKMS (isso garante que ele não quebre em atualizações de kernel)
+sudo ./dkms-install.sh
