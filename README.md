@@ -14,3 +14,7 @@ grep ^deb /etc/apt/sources.list
 
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt update --allow-releaseinfo-change
+
+
+sudo apt update
+sudo apt install bc nasm build-essential libelf-dev linux-headers-$(uname -r) dkms git -y
